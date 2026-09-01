@@ -1,7 +1,7 @@
 # NANDO — 開源 NAND 程式寫入器 導航索引
 
 > **本檔角色：** NANDO 專案寫入流程分析的快速導航（電話簿）。
-> **詳細分析：** → [`nand-open.md`](nand-open.md)（完整實作解析）
+> **詳細分析：** → `/home/dm/nand-flash/nand_programmer/memory/nand-open.md`（完整實作解析）
 > **建檔日期：** 2026-08-25
 
 ---
@@ -10,7 +10,7 @@
 
 | 想了解 | 進哪一節 |
 |---|---|
-| **STM32 硬體與 FMC 配置** | → [`nand-open_硬體架構.md`](nand-open_硬體架構.md)（STM32F1、GPIO 腳位、PCB 設計） |
+| **STM32 硬體與 FMC 配置** | → `/home/dm/nand-flash/nand_programmer/memory/nand-open_硬體架構.md`（STM32F1、GPIO 腳位、PCB 設計） |
 | **NANDO 整體專案結構** | §一 專案結構概覽 |
 | **韌體有哪些 C 檔案** | §二 韌體架構（firmware/programmer/） |
 | **核心讀寫擦 API** | §二 關鍵 API（fsmc_nand.c） |
@@ -43,11 +43,11 @@
 5. CMD `0x10` (WRITE2)
 6. Wait Status
 
-**對應代碼：** `fsmc_nand.c` L228-288
+**對應代碼：** `/home/dm/nand-flash/nand_programmer/firmware/programmer/fsmc_nand.c` L228-288
 
 **實作方式：** FMC 硬體自動時序（指標存取）
 
-**完整說明檔：** → [`fmc_write_page.md`](fmc_write_page.md)（五步驟詳解 + FMC 分區 + 時序配置）
+**完整說明檔：** → `/home/dm/nand-flash/nand_programmer/memory/fmc_write_page.md`（五步驟詳解 + FMC 分區 + 時序配置）
 
 **關鍵點：**
 - `_async` 不等完成，後續需呼叫 `nand_get_status()` polling
@@ -65,7 +65,7 @@
 5. Read (逐 byte)
 6. Wait Status
 
-**對應代碼：** `fsmc_nand.c` L290-361
+**對應代碼：** `/home/dm/nand-flash/nand_programmer/firmware/programmer/fsmc_nand.c` L290-361
 
 ### Read ID（讀晶片 ID）
 
@@ -116,7 +116,7 @@
 - write 與 status 等待分開
 - 便於多工或 DMA
 
-✅ **Bad block 獨立層**（`nand_bad_block.c`）
+✅ **Bad block 獨立層**（`/home/dm/nand-flash/nand_programmer/firmware/programmer/nand_bad_block.c`）
 - 可複用於其他 NAND driver
 
 ---
@@ -154,7 +154,7 @@
 
 ## 參考資源
 
-- **完整實作分析**：[`nand-open.md`](nand-open.md)
+- **完整實作分析**：`/home/dm/nand-flash/nand_programmer/memory/nand-open.md`
 - **NANDO GitHub**：https://github.com/bbogush/nand_programmer
 - **STM32H743 NAND 實作**：`/home/dm/stm32h743/stm32_fw/ok/index_fw.md`
 - **NAND 通則**：`/home/dm/nand-flash/memory/nand_vendor_command.md`
