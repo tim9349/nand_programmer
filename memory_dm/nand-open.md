@@ -368,5 +368,5 @@ static uint32_t nand_read_status()
 
 - **NANDO GitHub**：https://github.com/bbogush/nand_programmer
 - **ONFI 標準**：`/home/dm/nand-flash/onfi/`
-- **STM32H743 FMC 配置**：`/home/dm/stm32h743/memory/stm32_fmc_初始化與暫存器時序.md`
+- **STM32H743 FMC 配置**：`/home/dm/stm32h743/memory/stm32_fmc_暫存器配置與通訊操作.md`
 - **STM32H743 NAND 實作**：`/home/dm/stm32h743/stm32_fw/ok/index_fw.md`

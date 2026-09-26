@@ -338,5 +338,5 @@ typedef struct __attribute__((__packed__))
 
 - **原始代碼**：`/home/dm/nand-flash/nand_programmer/firmware/programmer/fsmc_nand.c`
 - **完整分析**：[`nand-open.md`](nand-open.md) §三
-- **STM32H743 對照**：`/home/dm/stm32h743/memory/stm32_fmc_初始化與暫存器時序.md`
+- **STM32H743 對照**：`/home/dm/stm32h743/memory/stm32_fmc_暫存器配置與通訊操作.md`
 - **NAND 命令集**：`/home/dm/nand-flash/memory/nand_vendor_command.md`

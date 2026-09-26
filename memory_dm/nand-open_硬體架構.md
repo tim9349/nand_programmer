@@ -371,4 +371,4 @@ while (GPIO_ReadInputDataBit(GPIOD, GPIO_Pin_6) == 0) {
 - **GPIO 配置代碼**：`firmware/programmer/fsmc_nand.c` L65-95
 - **STM32F1 HAL 庫**：STM32Cube_FW_F1
 - **KiCAD 硬體設計**：`kicad/` 目錄（PCB + 原理圖）
-- **STM32H743 對應**：`/home/dm/stm32h743/memory/stm32_fmc_初始化與暫存器時序.md`
+- **STM32H743 對應**：`/home/dm/stm32h743/memory/stm32_fmc_暫存器配置與通訊操作.md`
