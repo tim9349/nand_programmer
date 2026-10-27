@@ -1,8 +1,17 @@
 # NANDO — 開源 NAND 程式寫入器 導航索引
 
 > **本檔角色：** NANDO 專案寫入流程分析的快速導航（電話簿）。
-> **詳細分析：** → `/home/dm/nand-flash/nand_programmer/memory_dm/nand-open.md`（完整實作解析）
-> **建檔日期：** 2026-08-25
+> **詳細分析：** → `/home/dm/nand-flash/nand_programmer/memory/nand-open.md`（完整實作解析）
+> **建檔日期：** 2026-08-25；2026-10-27 目錄由 `memory_dm/` 改名 `memory/`（對齊其他專案慣例），路徑與行號已對照原始碼核對。
+
+**本目錄檔案：**
+
+| 檔 | 角色 |
+|---|---|
+| `/home/dm/nand-flash/nand_programmer/memory/README.md` | NANDO 專案學習要點總覽與技術手冊（firmware／Qt 上位機／硬體等 4 個領域） |
+| `/home/dm/nand-flash/nand_programmer/memory/nand-open.md` | 完整實作解析（寫／讀／擦／Status、與 STM32H743 對應） |
+| `/home/dm/nand-flash/nand_programmer/memory/nand-open_硬體架構.md` | STM32F1 硬體與 FSMC 配置、GPIO 腳位、PCB |
+| `/home/dm/nand-flash/nand_programmer/memory/fmc_write_page.md` | Write Page 五步驟詳解 + FMC 分區 + 時序配置 |
 
 ---
 
@@ -10,7 +19,7 @@
 
 | 想了解 | 進哪一節 |
 |---|---|
-| **STM32 硬體與 FMC 配置** | → `/home/dm/nand-flash/nand_programmer/memory_dm/nand-open_硬體架構.md`（STM32F1、GPIO 腳位、PCB 設計） |
+| **STM32 硬體與 FMC 配置** | → `/home/dm/nand-flash/nand_programmer/memory/nand-open_硬體架構.md`（STM32F1、GPIO 腳位、PCB 設計） |
 | **NANDO 整體專案結構** | §一 專案結構概覽 |
 | **韌體有哪些 C 檔案** | §二 韌體架構（firmware/programmer/） |
 | **核心讀寫擦 API** | §二 關鍵 API（fsmc_nand.c） |
@@ -47,7 +56,7 @@
 
 **實作方式：** FMC 硬體自動時序（指標存取）
 
-**完整說明檔：** → `/home/dm/nand-flash/nand_programmer/memory_dm/fmc_write_page.md`（五步驟詳解 + FMC 分區 + 時序配置）
+**完整說明檔：** → `/home/dm/nand-flash/nand_programmer/memory/fmc_write_page.md`（五步驟詳解 + FMC 分區 + 時序配置）
 
 **關鍵點：**
 - `_async` 不等完成，後續需呼叫 `nand_get_status()` polling
@@ -89,8 +98,8 @@
 ### Status Polling
 
 **核心函式：**
-- `nand_get_status()` — polling loop with timeout
-- `nand_read_status()` — 讀 status register，判 ERROR/READY/BUSY
+- `nand_get_status()`（`fsmc_nand.c` L191）— polling loop with timeout
+- `nand_read_status()`（L174）— 讀 status register，判 ERROR/READY/BUSY
 
 **Status 位元定義：**
 - bit 0 = ERROR (1 = fail)
@@ -154,7 +163,7 @@
 
 ## 參考資源
 
-- **完整實作分析**：`/home/dm/nand-flash/nand_programmer/memory_dm/nand-open.md`
+- **完整實作分析**：`/home/dm/nand-flash/nand_programmer/memory/nand-open.md`
 - **NANDO GitHub**：https://github.com/bbogush/nand_programmer
 - **STM32H743 NAND 實作**：`/home/dm/stm32h743/stm32_fw/ok/index_fw.md`
-- **NAND 通則**：`/home/dm/nand-flash/memory/nand_vendor_command.md`
+- **NAND 通則**：`/home/dm/nand-flash/memory/nand_vendor_command.md` §0（ONFI 公開命令、Read ID、Status；晶片專屬 vendor 內容已分檔，入口 `/home/dm/nand-flash/memory/index_nand.md`）
